@@ -1,0 +1,37 @@
+{
+	"agcgw":{
+		"websocketbackurl":"connect-ws-drcn.hispace.dbankcloud.cn",
+		"backurl":"connect-drcn.dbankcloud.cn",
+		"websocketurl":"connect-ws-drcn.hispace.dbankcloud.com",
+		"url":"connect-drcn.hispace.hicloud.com"
+	},
+	"client":{
+		"appType":"1",
+		"cp_id":"10086000020034826",
+		"product_id":"736430079244811775",
+		"client_id":"557876681772118656",
+		"client_secret":"B0BDE418EA8F24BF5C04044D962088E8CE8C21AA944DCAB7EDFB24146782C6FD",
+		"project_id":"736430079244811775",
+		"app_id":"103841447",
+		"api_key":"CgB6e3x9RIbTFlmRJDyj4EqW8MkFxOjxhfceT96Rwu3JMQkR9IrEKg1v+t9R4imsQ5nCGP8dfP233JlqRcOL7dLk",
+		"package_name":"com.kevin.mobtechandhuaweipush"
+	},
+	"service":{
+		"analytics":{
+			"collector_url":"datacollector-drcn.dt.hicloud.com,datacollector-drcn.dt.dbankcloud.cn",
+			"resource_id":"p1",
+			"channel_id":""
+		},
+		"search":{
+			"url":"https://search-drcn.cloud.huawei.com"
+		},
+		"cloudstorage":{
+			"storage_url":"https://agc-storage-drcn.platform.dbankcloud.cn"
+		},
+		"ml":{
+			"mlservice_url":"ml-api-drcn.ai.dbankcloud.com,ml-api-drcn.ai.dbankcloud.cn"
+		}
+	},
+	"region":"CN",
+	"configuration_version":"1.0"
+}
