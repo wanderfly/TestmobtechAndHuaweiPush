@@ -27,6 +27,38 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "324f81c6b167e"
+    appSecret "32cd7f9c5351fe9f98bd0d80f877196c"
+    MobPush {
+        devInfo {
+            HUAWEI {
+                appId "103841447"
+            }
+            MEIZU {
+                appId "魅族的appid"
+                appKey "魅族的appkey"
+            }
+            XIAOMI {
+                appId "小米的appId"
+                appKey "小米的appKey"
+            }
+            FCM {
+                iconRes "@drawable/icon"
+            }
+            OPPO {
+                appKey "OPPO的appKey"
+                appSecret "OPPO的appSecret"
+            }
+            VIVO {
+                appId "VIVO的appId"
+                appKey  "VIVO的appSecret"
+            }
+        }
+    }
+}
 
 dependencies {
     implementation 'com.huawei.agconnect:agconnect-core:1.4.0.300'
