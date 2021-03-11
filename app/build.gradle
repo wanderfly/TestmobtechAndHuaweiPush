@@ -42,8 +42,8 @@ MobSDK {
                 appKey "魅族的appkey"
             }
             XIAOMI {
-                appId "小米的appId"
-                appKey "小米的appKey"
+                appId "2882303761519558678"
+                appKey "5421955892678"
             }
             FCM {
                 iconRes "@drawable/icon"
@@ -65,9 +65,10 @@ dependencies {
     implementation 'com.huawei.hms:push:5.0.2.300'
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

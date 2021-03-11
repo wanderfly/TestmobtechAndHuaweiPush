@@ -2,6 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kevin.mobtechandhuaweipush">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />​
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <permission
+        android:name="com.kevin.mobtechandhuaweipush.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" /> <!--这里com.xiaomi.mipushdemo改成app的包名-->
+
+    <uses-permission android:name="com.kevin.mobtechandhuaweipush.permission.MIPUSH_RECEIVE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"

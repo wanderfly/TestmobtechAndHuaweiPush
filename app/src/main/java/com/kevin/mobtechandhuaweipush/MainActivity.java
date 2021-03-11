@@ -2,6 +2,7 @@ package com.kevin.mobtechandhuaweipush;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -11,6 +12,8 @@ import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.aaid.entity.AAIDResult;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
@@ -18,13 +21,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                getAAID();
-            }
-        }).start();
+        getDeviceInfo();
+        if (isHonor()||isHuaWei()){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    getAAID();
+                }
+            }).start();
+        }
     }
+
+    private void getDeviceInfo(){
+        Log.e(TAG, "getDeviceInfo: BRAND:"+ Build.BRAND+" BOARD:"+Build.BOARD+" MANUFACTURER:"+Build.MANUFACTURER+" PRODUCT:"+Build.PRODUCT);
+    }
+
+    private boolean isHonor(){
+        return Objects.equals("HONOR",Build.BRAND);
+    }
+
+    private boolean isHuaWei(){
+        return Objects.equals("HUAWEI",Build.BRAND);
+    }
+    private boolean isXiaoMi(){
+        return Objects.equals("Xiaomi",Build.BRAND);
+    }
+
 
     public void getAAID() {
         Task<AAIDResult> idResult = HmsInstanceId.getInstance(this).getAAID();
@@ -50,13 +72,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    String token=HmsInstanceId.getInstance(MainActivity.this).getToken(aaid, scope);
-                    Log.e(TAG, "getToken: "+token);
+                    HmsInstanceId hmsInstanceId=HmsInstanceId.getInstance(MainActivity.this);
+                    String token=hmsInstanceId.getToken(aaid, scope);
+                    Log.e(TAG, "getToken: hmsInstanceId:"+hmsInstanceId+" token:"+token);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Log.e(TAG, "getToken: "+e.toString());
+                    Log.e(TAG, "getToken: 出错"+e.toString());
                 }
             }
         }).start();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        final String[] permissions=PermissionUtil.generatePermissionArray(this);
+        if (permissions.length > 0) {
+            PermissionUtil.requestBase(this, 110, permissions);
+        }
     }
 }
