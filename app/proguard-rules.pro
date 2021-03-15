@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#TPNS SDK
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tencent.android.tpush.*
+-keep class com.tencent.tpns.baseapi.*
+-keep class com.tencent.tpns.mqttchannel.*
+-keep class com.tencent.tpns.dataacquisition.*
